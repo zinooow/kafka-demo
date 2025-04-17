@@ -21,13 +21,13 @@ public class OrderConsumer {
             @Header(KafkaHeaders.RECEIVED_PARTITION) int partition,
             @Header(KafkaHeaders.OFFSET) long offset
     ) {
-        try {
+//        try {
             log.info("Received order:{}, partition: {}, offset: {}", order.getOrderId(), partition, offset);
             processOrder(order);
-        } catch (Exception ex) {
-            log.error("Error while sending order", ex);
-            handleError(order, ex);
-        }
+//        } catch (Exception ex) {
+//            log.error("Error while sending order", ex);
+//            handleError(order, ex);
+//        }
     }
 
     protected void processOrder(OrderEvent order) {
